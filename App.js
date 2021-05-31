@@ -1,12 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+// import { LinearGradient } from 'expo-linear-gradient';
+import InputTasks from './src/components/TextInput';
+import Tasks from './src/components/Tasks';
+import SendButton from './src/components/Button'
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.container}>   
+    <Text style={styles.text}>
+      Lista de Tareas
+    </Text>
+      <View style={{flex: 3}}>
+        <Tasks />
+      </View>
+      <View style={{flex: 1}}>
+        <InputTasks />
+        <SendButton />
+      </View>
     </View>
   );
 }
@@ -14,8 +26,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'center',
+    
+    paddingTop: 50,
   },
-});
+  text:{
+    fontSize: 30,
+    color: '#FF5733',
+    textAlign: 'center',
+  },
+  input: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 0,
+  }
+})
+export default App;
